@@ -1,50 +1,61 @@
 ﻿using System;
 
-class Program
+class ColoredPoem
 {
     static void Main()
     {
-        Console.WriteLine("Программа для вычисления площади и периметра ромба");
-       
 
-        
-        Console.Write("Введите длину стороны ромба: ");
-        double side = double.Parse(Console.ReadLine());
+        ConsoleColor originalColor = Console.ForegroundColor;
 
-        Console.Write("Введите угол между смежными сторонами (в градусах): ");
-        double angleDegrees = double.Parse(Console.ReadLine());
 
-        
-        if (side <= 0)
-        {
-            Console.WriteLine("Ошибка: длина стороны должна быть положительным числом!");
-            return;
-        }
 
-        if (angleDegrees <= 0 || angleDegrees >= 180)
-        {
-            Console.WriteLine("Ошибка: угол должен быть в диапазоне от 0 до 180 градусов!");
-            return;
-        }
 
-       
-        double perimeter = 4 * side;
+        Console.ForegroundColor = ConsoleColor.Yellow;
+        Console.WriteLine("«Осень»");
+        Console.WriteLine();
 
-       
-        double angleRadians = angleDegrees * Math.PI / 180;
 
-        
-        double area = Math.Pow(side, 2) * Math.Sin(angleRadians);
+        Console.ForegroundColor = ConsoleColor.Green;
+        Console.WriteLine("Автор: Александр Сергеевич Пушкин");
+        Console.WriteLine();
 
-       
-        Console.WriteLine("\nРезультаты вычислений:");
-    
-        Console.WriteLine($"Длина стороны: {side:F2}");
-        Console.WriteLine($"Угол между сторонами: {angleDegrees:F2}°");
-        Console.WriteLine($"Периметр ромба: {perimeter:F2}");
-        Console.WriteLine($"Площадь ромба: {area:F2}");
 
-     
+        Console.ForegroundColor = ConsoleColor.Cyan;
+        Console.WriteLine("Унылая пора! Очей очарованье!");
+
+
+        Console.ForegroundColor = ConsoleColor.White;
+        Console.WriteLine("Приятна мне твоя прощальная краса —");
+
+
+        Console.ForegroundColor = ConsoleColor.Magenta;
+        Console.WriteLine("Люблю я пышное природы увяданье,");
+
+
+        Console.ForegroundColor = ConsoleColor.Red;
+        Console.WriteLine("В багрец и в золото одетые леса.");
+        Console.WriteLine();
+
+
+        Console.ForegroundColor = ConsoleColor.Cyan;
+        Console.WriteLine("В их сенях ветра шум и свежее дыханье,");
+
+
+        Console.ForegroundColor = ConsoleColor.White;
+        Console.WriteLine("И мглой волнистою покрыты небеса,");
+
+
+        Console.ForegroundColor = ConsoleColor.Magenta;
+        Console.WriteLine("И редкий солнца луч, и первые морозы,");
+
+
+        Console.ForegroundColor = ConsoleColor.Red;
+        Console.WriteLine("И отдаленные седой зимы угрозы.");
+        Console.WriteLine();
+
+        Console.ForegroundColor = originalColor;
+
+
         Console.ReadKey();
     }
 }
