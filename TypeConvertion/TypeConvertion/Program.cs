@@ -8,6 +8,7 @@ namespace TypeConvertion
 {
     internal class Program
     {
+        static int k = 5;
         static void Main(string[] args)
         {
             double x = 2;
@@ -26,18 +27,20 @@ namespace TypeConvertion
             n = (int)Math.Round(x);
             Console.WriteLine("n = " + n);
 
-            long m = 3000000000L;
+            long m = 300000L;
             Console.WriteLine("m = " + m);
 
-            //checked
-            //{
-            //    n = (int)m;
-            //}
+            int k;
 
-            n = (int)m;
+            checked
+            {
+               k = (int)m;
+            }
 
-            Console.WriteLine("n = " + n);
+            //n = (int)m;
 
+            Console.WriteLine("Поле k = " + Program.k);
+            Console.WriteLine("Локальная переменная k = " + k);
         }
     }
 }
