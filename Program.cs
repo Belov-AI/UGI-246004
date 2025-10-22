@@ -2,27 +2,44 @@
 
 class Program
 {
+
+    static bool CheckCondition(int n)
+    {
+        return (n % 2 != 0) && (n % 3 != 0);
+    }
+
+
+    static bool IsPointInArea(double x, double y)
+    {
+        return (y >= 0.5) && (y <= 1.5);
+    }
+
     static void Main()
     {
-        try
-        {
-            Console.Write("Введите четырехзначное число: ");
-            int number = int.Parse(Console.ReadLine());
+        Console.WriteLine("Задача 8.1");
 
-            if (number < 1000 || number > 9999)
-                throw new ArgumentException("Число должно быть четырехзначным!");
+     
+        Console.Write("Введите число n: ");
+        int n = int.Parse(Console.ReadLine());
 
-            int result = (number / 1000) * 1000 +
-                        ((number / 10) % 10) * 100 +
-                        ((number / 100) % 10) * 10 +
-                        (number % 10);
+        Console.Write("Введите число m: ");
+        int m = int.Parse(Console.ReadLine());
 
-            Console.WriteLine($"Исходное число: {number}");
-            Console.WriteLine($"После перестановки: {result}");
-        }
-        catch (Exception ex)
-        {
-            Console.WriteLine($"Ошибка: {ex.Message}");
-        }
+        Console.Write("Введите число k: ");
+        int k = int.Parse(Console.ReadLine());
+
+        bool result = CheckCondition(n);
+        Console.WriteLine($"Число n = {n} не кратно ни 2, ни 3: {result}");
+
+        Console.WriteLine("\n=== Задача 8.2 ===");
+
+        Console.Write("Введите координату x: ");
+        double x = double.Parse(Console.ReadLine());
+
+        Console.Write("Введите координату y: ");
+        double y = double.Parse(Console.ReadLine());
+
+        bool inArea = IsPointInArea(x, y);
+        Console.WriteLine($"Точка ({x}, {y}) принадлежит области: {inArea}");
     }
 }
