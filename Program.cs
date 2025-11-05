@@ -2,27 +2,28 @@
 
 class Program
 {
-    static void Main()
+    static double CalculateF(double x)
     {
-        try
+        if (x < -1)
         {
-            Console.Write("Введите четырехзначное число: ");
-            int number = int.Parse(Console.ReadLine());
-
-            if (number < 1000 || number > 9999)
-                throw new ArgumentException("Число должно быть четырехзначным!");
-
-            int result = (number / 1000) * 1000 +
-                        ((number / 10) % 10) * 100 +
-                        ((number / 100) % 10) * 10 +
-                        (number % 10);
-
-            Console.WriteLine($"Исходное число: {number}");
-            Console.WriteLine($"После перестановки: {result}");
+            return 1 - Math.Pow(x, 2);
         }
-        catch (Exception ex)
+        else if (x >= -1 && x <= 1)
         {
-            Console.WriteLine($"Ошибка: {ex.Message}");
+            return 0;
         }
+        else 
+        {
+            return x - 1;
+        }
+    }
+
+    static void Main(string[] args)
+    {
+        Console.Write("Введите значение x: ");
+        double x = Convert.ToDouble(Console.ReadLine());
+
+        double result = CalculateF(x);
+        Console.WriteLine($"f({x}) = {result}");
     }
 }
