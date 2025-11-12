@@ -1,0 +1,31 @@
+﻿using Microsoft.Win32;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Task10_3
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine("Введите число > 1");
+
+            var a = double.Parse(Console.ReadLine());
+
+            long n = 0;
+            double sum = 0;
+            double power = -2.0 / 3;
+
+            while (sum <= a)
+            {
+                n++;
+                sum += Math.Pow(n, power);
+            }
+
+            Console.WriteLine($"Сумма > {a} при n = {n}");
+        }
+    }
+}
