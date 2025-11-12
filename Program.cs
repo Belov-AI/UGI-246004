@@ -4,25 +4,21 @@ class Program
 {
     static void Main()
     {
-        try
+        Console.Write("Введите число: ");
+        int n = int.Parse(Console.ReadLine());
+        int minDigit = 10, position = 0, minPos = 0, currPos = 1;
+        int temp = n;
+        while (temp > 0)
         {
-            Console.Write("Введите четырехзначное число: ");
-            int number = int.Parse(Console.ReadLine());
-
-            if (number < 1000 || number > 9999)
-                throw new ArgumentException("Число должно быть четырехзначным!");
-
-            int result = (number / 1000) * 1000 +
-                        ((number / 10) % 10) * 100 +
-                        ((number / 100) % 10) * 10 +
-                        (number % 10);
-
-            Console.WriteLine($"Исходное число: {number}");
-            Console.WriteLine($"После перестановки: {result}");
+            int digit = temp % 10;
+            if (digit < minDigit)
+            {
+                minDigit = digit;
+                minPos = currPos;
+            }
+            temp /= 10;
+            currPos++;
         }
-        catch (Exception ex)
-        {
-            Console.WriteLine($"Ошибка: {ex.Message}");
-        }
+        Console.WriteLine($"Позиция минимальной цифры (справа налево): {minPos}");
     }
 }
