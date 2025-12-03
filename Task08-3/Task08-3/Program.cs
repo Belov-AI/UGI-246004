@@ -24,8 +24,8 @@ namespace Task08_3
             int whitePawnH, whitePawnV;
             int blackPawnH, blackPawnV;
 
-            DecodePosition(whitePawnPosition, out whitePawnV, out whitePawnH);
-            DecodePosition(blackPawnPosition, out blackPawnV, out blackPawnH);
+            (whitePawnV, whitePawnH) = DecodePosition(whitePawnPosition);
+            (blackPawnV, blackPawnH) = DecodePosition(blackPawnPosition);
 
             if (whitePawnH == 1 || whitePawnH == 8 || blackPawnH == 1 || blackPawnH == 8)
             {
@@ -41,18 +41,20 @@ namespace Task08_3
 
         }
 
-        static void DecodePosition(string position, out int vert, out int hor)
+        static (int, int) DecodePosition(string position)
         {
-            vert = (int)position[0] - 0x60;
-            hor = int.Parse(position[1].ToString());
+            var vert = (int)position[0] - 0x60;
+            var hor = int.Parse(position[1].ToString());
+
+            return (vert, hor);
         }
 
         static bool IsUnderStrikeByWhitePawn(string position,string whitePawnPostition)
         {
             int pV, pH,wpV,wpH;
 
-            DecodePosition(position, out pV, out pH);
-            DecodePosition(whitePawnPostition, out wpV, out wpH);
+            (pV, pH) = DecodePosition(position);
+            (wpV, wpH) = DecodePosition(whitePawnPostition);
 
             return pH - wpH == 1 && Math.Abs(pV - wpV) == 1;
         }
@@ -61,8 +63,8 @@ namespace Task08_3
         {
             int pV, pH, bpV, bpH;
 
-            DecodePosition(position, out pV, out pH);
-            DecodePosition(blackPawnPostition, out bpV, out bpH);
+            (pV, pH) = DecodePosition(position);
+            (bpV, bpH) = DecodePosition(blackPawnPostition);
 
             return bpH - pH == 1 && Math.Abs(pV - bpV) == 1;
         }
