@@ -75,10 +75,10 @@ namespace Fractals
                 double xRotated, yRotated;
 
 				if (rnd.NextDouble() < 0.5)
-					RotateAndScale(x, y, 45, out xRotated, out yRotated);
+					(xRotated, yRotated) = RotateAndScale(x, y, 45);
 				else
-				{ 
-					RotateAndScale(x, y, 135, out xRotated, out yRotated);
+				{
+                    (xRotated, yRotated) = (xRotated, yRotated) = RotateAndScale(x, y, 135);
 					xRotated += 1;
 				}
 
@@ -104,16 +104,17 @@ namespace Fractals
 			return (int)Math.Round(maxX / 2.0 + (maxX / 2.0 - MarginSize) * x);
 		}
 
-		static void RotateAndScale(double x, double y, double angleInDegrees, 
-			out double xNew, out double yNew)
+		static (double, double) RotateAndScale(double x, double y, double angleInDegrees)
 		{
 			var angleInRadians = angleInDegrees * Math.PI / 180;
 
-			xNew = (x * Math.Cos(angleInRadians) - 
+			double xNew = (x * Math.Cos(angleInRadians) - 
 				y * Math.Sin(angleInRadians)) / Math.Sqrt(2);
 
-            yNew = (x * Math.Sin(angleInRadians) +
+            double yNew = (x * Math.Sin(angleInRadians) +
                 y * Math.Cos(angleInRadians)) / Math.Sqrt(2);
+
+			return (xNew, yNew);
         }
 	}
 }
