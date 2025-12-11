@@ -43,7 +43,10 @@ namespace Task12
                 for (int j = 0; j < matrix.GetLength(1); j++)
                     matrix[i, j] = rnd.Next(0, 100);
 
+            Console.WriteLine();
+
             PrintTable(matrix);
+            Console.WriteLine();
 
             var index = GetMinLastElemColumnIndex(matrix);
 
@@ -51,6 +54,13 @@ namespace Task12
                 Console.WriteLine($"У столбца с индексом {index} последний элемент наименьший");
             else
                 Console.WriteLine("Нет столбца с последним наименьшим элементом");
+
+            Console.WriteLine();
+
+            var diffs = GetDifferences(matrix);
+
+            for (int i = 0; i < diffs.Length; i++)
+                Console.WriteLine($"Строка {i}: max - min = {diffs[i]}");
         }
 
         static void PrintTable(int[,] table)
@@ -86,6 +96,30 @@ namespace Task12
             }
 
             return -1;              
+        }
+
+        static int[] GetDifferences(int[,] table) 
+        { 
+            var result = new int[table.GetLength(0)];
+
+            for(int i = 0; i < table.GetLength(0); i++)
+            {
+                int min = int.MaxValue;
+                int max = int.MinValue;
+
+                for(int j = 0; j < table.GetLength(1); j++)
+                {
+                    if (table[i,j] < min)
+                        min = table[i,j];
+
+                    if (table[i,j] > max)
+                        max = table[i,j];
+                }
+
+                result[i] = max - min;
+            }
+
+            return result;
         }
     }
 }
