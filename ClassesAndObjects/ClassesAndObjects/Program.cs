@@ -18,8 +18,8 @@ namespace ClassesAndObjects
 
             var ann = new Person() { Name = "Анна", Surname = "Каренина", Age = 20 };
 
-            Console.WriteLine($"{peter.Name} {peter.Surname}, возраст: {peter.Age}");
-            Console.WriteLine($"{ann.Name} {ann.Surname}, возраст: {ann.Age}");
+            Console.WriteLine(peter.GetInfo());
+            Console.WriteLine(ann.GetInfo());
         }
     }
 }

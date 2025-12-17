@@ -10,7 +10,22 @@ namespace Service
     {
         public string Name;
         public string Surname;
-        public int Age;
+
+        private int age;
+        public int Age
+        {
+            get => age;
+            
+            set
+            {
+                if(value < 0 || value >150)
+                    throw new ArgumentOutOfRangeException("value");
+
+                age = value;
+            }
+        }
+
+        public string GetInfo() => $"{Name} {Surname}, возраст: {Age}";
 
     }
 }
