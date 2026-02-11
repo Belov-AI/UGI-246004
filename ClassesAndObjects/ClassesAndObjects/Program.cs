@@ -16,10 +16,13 @@ namespace ClassesAndObjects
             peter.Surname = "Иванов";
             peter.Age = 18;
 
-            var ann = new Person() { Name = "Анна", Surname = "Каренина", Age = 20 };
+            var ann = new Person { Name = "Анна", Surname = "Каренина", Age = 20 };
+
+            var mike = new Person("Michael", "Mayers", 25);
 
             Console.WriteLine(peter.GetInfo());
             Console.WriteLine(ann.GetInfo());
+            Console.WriteLine(mike.GetInfo());
         }
     }
 }

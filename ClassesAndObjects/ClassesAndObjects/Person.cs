@@ -25,6 +25,15 @@ namespace Service
             }
         }
 
+        public Person(string name, string surname,  int age)
+        {
+            Name = name;
+            Surname = surname;
+            Age = age;
+        }
+
+        public Person() : this("", "", 0) { }
+
         public string GetInfo() => $"{Name} {Surname}, возраст: {Age}";
 
     }
