@@ -18,11 +18,18 @@ namespace EuclidConsole
             Console.WriteLine(s.GetInfo());
             Console.WriteLine($"длина отрезка {s.Length:F3}");
 
-            s = Geometry.CreateSegment(new Point(-2, 1.5), new Point(0, 0));
-            Console.WriteLine(s.GetInfo());
+            try
+            {
+                s = Geometry.CreateSegment(new Point(-2, 1.5), new Point(0, 0));
+                Console.WriteLine(s.GetInfo());
 
-            //s = Geometry.CreateSegment(new Point(1, 1), new Point(1, 1));
-            //Console.WriteLine(s.GetInfo());
+                s = Geometry.CreateSegment(new Point(1, 1), new Point(1, 1));
+                Console.WriteLine(s.GetInfo());
+            }
+            catch (Exception ex)
+            { 
+                Console.WriteLine(ex.Message);
+            }
         }
     }
 }

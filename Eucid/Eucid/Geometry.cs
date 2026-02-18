@@ -11,9 +11,12 @@ namespace Eucid
         public static Segment CreateSegment(Point a, Point b)
         {
             if (a.X == b.X && a.Y == b.Y)
-                throw new ArgumentException("Концы отрезка не должны совпадать");
+                throw new ArgumentException(
+                    $"Попытка создания отрезка с совпадающими концами {a.GetInfo()}");
 
             return new Segment(a, b);
         }
+
+        public static bool IsSegmentContainsPoint(Segment s, Point p) => s.IsContains(p);
     }
 }

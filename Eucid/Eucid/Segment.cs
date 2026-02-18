@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Remoting.Metadata.W3cXsd2001;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -29,5 +30,16 @@ namespace Eucid
         }
 
         public string GetInfo() => $"отрезок с концами в точках {A.GetInfo()} и {B.GetInfo()}";
+
+        public bool IsContains(Point p) 
+        { 
+            var apX = p.X - A.X;
+            var apY = p.Y - A.Y;
+            var pbX = B.X - p.X;
+            var pbY = B.Y - p.Y;
+
+            return Math.Abs(apX * pbY - apY * pbX) < 1e-13 &&
+                Math.Abs(apX * pbX + apY * pbY) > -1e-13;
+        }
     }
 }
