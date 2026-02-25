@@ -11,11 +11,18 @@ namespace ServiceApp
     {
         static void Main(string[] args)
         {
-            var mike = new User("mike");
+            var mike = new User("Mike");
 
-            Thread.Sleep(5000);
+            Thread.Sleep(1000);
             WebService.LogIn(mike);
-            Thread.Sleep(2000);
+            Thread.Sleep(1000);
+
+            var ann = new RegisteredUser("Ann", "ann@urfu.ru", "qwerty2026");
+            Console.WriteLine(ann.GetInfo());
+
+            var admin = new Admin("John", "admin@service.ru", "Gnvion$1654bc", 2);
+            Console.WriteLine(admin.GetInfo());
+
         }
     }
 }
