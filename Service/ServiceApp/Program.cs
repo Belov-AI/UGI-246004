@@ -23,6 +23,8 @@ namespace ServiceApp
             var admin = new Admin("John", "admin@service.ru", "Gnvion$1654bc", 2);
             Console.WriteLine(admin.GetInfo());
 
+            Console.WriteLine(admin.ToString());
+
         }
     }
 }

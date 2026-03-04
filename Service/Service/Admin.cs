@@ -8,14 +8,29 @@ namespace Service
 {
     public class Admin : RegisteredUser
     {
-        readonly public int AccessLevel;
+        protected int accessLevel;
         
         public Admin(string login, string email, string password, int level) :
             base(login, email, password) 
         { 
-            AccessLevel = level;
+            accessLevel = level;
         }
 
-        public bool CheckPassword(string password) => password.GetHashCode() == passwordHash; 
+        public bool CheckPassword(string password) => password.GetHashCode() == passwordHash;
+
+        public int GetLevel() => accessLevel;
+
+        protected void ChangeLevel(Admin admin, int level)
+        {
+            if(admin is SuperAdmin)
+                this.accessLevel = level;
+        }
+
+        public void ChanhePassword(string newPassword, string oldPasswod)
+        {
+            if(oldPasswod.GetHashCode() == passwordHash)
+                passwordHash = newPassword.GetHashCode();
+        }
     }
+
 }
