@@ -22,7 +22,7 @@ namespace Euclid.UnitTests
         }
 
         [Test]
-        public void GetInfo()
+        public void GetInfoTest()
         {
             //arrange
             var p = new Point(1.5, -3.1);

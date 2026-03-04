@@ -39,7 +39,7 @@ namespace Eucid
             var pbY = B.Y - p.Y;
 
             return Math.Abs(apX * pbY - apY * pbX) < 1e-13 &&
-                Math.Abs(apX * pbX + apY * pbY) > -1e-13;
+                apX * pbX + apY * pbY > -1e-13;
         }
     }
 }
