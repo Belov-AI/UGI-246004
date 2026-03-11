@@ -17,14 +17,20 @@ namespace Service
 
         public static void LogIn(User user)
         {
-            users.Add(user);
-            Logger.LogInfo($"{user.Login} присоединился к сервису");
+            if (!users.Contains(user)) 
+            {
+                users.Add(user);
+                Logger.LogInfo($"{user.Login} присоединился к сервису");
+            }  
         }
 
         public static void LogOut(User user) 
-        { 
-            users.Remove(user);
-            Logger.LogInfo($"{user.Login} отсоединился от сервиса");
+        {
+            if (users.Contains(user)) 
+            {
+                users.Remove(user);
+                Logger.LogInfo($"{user.Login} отсоединился от сервиса");
+            }           
         }
 
         public static string[] GetUserNames()
@@ -35,6 +41,16 @@ namespace Service
                 userNames[i] = users[i].Login;
 
             return userNames;
+        }
+
+        public static List<string> GetUsersInfo()
+        {
+            var result = new List<string>();
+
+            foreach (var user in users)
+                result.Add(user.GetInfo());
+
+            return result;
         }
     }
 }

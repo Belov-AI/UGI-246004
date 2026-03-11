@@ -29,6 +29,6 @@ namespace Service
             Logger.LogInfo($"Пользователь {login} удалён из памяти");
         }
 
-        public string GetInfo() => $"Пользователь {Login}";
+        public virtual string GetInfo() => $"Пользователь {Login}";
     }
 }

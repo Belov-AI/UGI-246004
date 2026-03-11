@@ -20,5 +20,8 @@ namespace Service
 
             this.passwordHash = password.GetHashCode();
         }
+
+        public override string GetInfo() => 
+            $"Зарегистрированный пользователь {Login}, e-mail {Email}";
     }
 }

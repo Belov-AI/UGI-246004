@@ -18,13 +18,18 @@ namespace ServiceApp
             Thread.Sleep(1000);
 
             var ann = new RegisteredUser("Ann", "ann@urfu.ru", "qwerty2026");
-            Console.WriteLine(ann.GetInfo());
+            WebService.LogIn(ann);
 
             var admin = new Admin("John", "admin@service.ru", "Gnvion$1654bc", 2);
-            Console.WriteLine(admin.GetInfo());
+            WebService.LogIn(admin);
 
-            Console.WriteLine(admin.ToString());
+            PrintUsersInfo();
+        }
 
+        static void PrintUsersInfo()
+        {
+            foreach(var info in WebService.GetUsersInfo())
+                Console.WriteLine(info);
         }
     }
 }

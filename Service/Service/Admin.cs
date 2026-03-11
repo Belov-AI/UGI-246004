@@ -31,6 +31,9 @@ namespace Service
             if(oldPasswod.GetHashCode() == passwordHash)
                 passwordHash = newPassword.GetHashCode();
         }
+
+        public override sealed string GetInfo() =>
+            $"Администратор {Login}, уровень доступа {accessLevel}";
     }
 
 }
