@@ -29,7 +29,7 @@ namespace Eucid
             B = b;
         }
 
-        public string GetInfo() => $"отрезок с концами в точках {A.GetInfo()} и {B.GetInfo()}";
+        public override string ToString() => $"отрезок с концами в точках {A.ToString()} и {B.ToString()}";
 
         public bool IsContains(Point p) 
         { 
@@ -40,6 +40,14 @@ namespace Eucid
 
             return Math.Abs(apX * pbY - apY * pbX) < 1e-13 &&
                 apX * pbX + apY * pbY > -1e-13;
+        }
+
+        public override bool Equals(object obj)
+        {
+            if (obj is Segment s)
+                return A == s.A && B == s.B || A == s.B && B == s.A;
+            
+            return false;
         }
     }
 }

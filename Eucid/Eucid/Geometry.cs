@@ -12,7 +12,7 @@ namespace Eucid
         {
             if (a.X == b.X && a.Y == b.Y)
                 throw new ArgumentException(
-                    $"Попытка создания отрезка с совпадающими концами {a.GetInfo()}");
+                    $"Попытка создания отрезка с совпадающими концами {a.ToString()}");
 
             return new Segment(a, b);
         }

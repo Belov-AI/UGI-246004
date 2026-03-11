@@ -17,6 +17,17 @@ namespace Eucid
             Y = y;
         }
 
-        public string GetInfo() => $"({X}; {Y})";
+        public override string ToString() => $"({X}; {Y})";
+        public override bool Equals(object obj)
+        {
+            if (obj is Point p)
+                return Math.Abs(X - p.X) < 1e-13 && Math.Abs(Y - p.Y) < 1e-13;
+
+            return false;
+        }
+
+        public static bool operator ==(Point p, Point q) => p.Equals(q);
+
+        public static bool operator !=(Point p, Point q) => !p.Equals(q);
     }
 }

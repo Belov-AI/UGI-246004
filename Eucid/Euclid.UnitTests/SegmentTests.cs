@@ -22,7 +22,7 @@ namespace Euclid.UnitTests
         {
             var s = GetTestSegment(1.5, -2.1, 4, 0.8);
 
-            Assert.That(s.GetInfo(), Is.EqualTo(
+            Assert.That(s.ToString(), Is.EqualTo(
                 "отрезок с концами в точках (1,5; -2,1) и (4; 0,8)"));
         }
 
@@ -47,6 +47,31 @@ namespace Euclid.UnitTests
 
             Assert.That(s.IsContains(p), Is.EqualTo(result));
         }
+
+        [TestCase(1, 1, 3, 2, true)]
+        [TestCase(3, 2, 1, 1, true)]
+        [TestCase(1, -1, 3, 2, false)]
+        [TestCase(1, 1, 2, 2, false)]
+        public void Equals_Segment_Result(double aX, double aY, 
+            double bX, double bY, bool result)
+        {
+            var s = GetTestSegment(1, 1, 3, 2);
+            var temp = GetTestSegment(aX, aY, bX, bY);
+            
+            Assert.That(s, Is.Not.SameAs(temp));
+            Assert.That(s.Equals(temp), Is.EqualTo(result));
+        }
+
+        [Test]
+        public void Equals_Object_False()
+        {
+            var s = GetTestSegment(1, 1, 3, 2);
+            var temp = new object();
+
+            Assert.That(s.Equals(temp), Is.False);
+        }
+
+
 
         private Segment GetTestSegment(
             double aX, double aY, double bX, double bY) =>
