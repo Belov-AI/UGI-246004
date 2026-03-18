@@ -16,11 +16,23 @@ namespace Eucid
         public Segment AC => new Segment(A, C);
         public Segment BC => new Segment(B, C);
 
+        public double Area
+        {
+            get
+            {
+                var p = (AB.Length + AC.Length + BC.Length) / 2;
+                return 
+                    Math.Sqrt(p * (p - AB.Length) * (p - AC.Length) * (p - BC.Length));
+            }
+        }
         public Triangle(Point a, Point b, Point c)
         {
             A = a;
             B = b;
             C = c;
         }
+
+        public override string ToString() =>
+            $"треугольник с вершинами в точках {A}, {B} и {C}";
     }
 }

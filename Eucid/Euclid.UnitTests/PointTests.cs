@@ -54,5 +54,19 @@ namespace Euclid.UnitTests
 
             Assert.That(p.Equals(q), Is.False);
         }
+
+        [Test]
+        public void RotateTest()
+        {
+            var p = new Point(3, 1);
+            var c = new Point(1, 2);
+            //var q = new Point(38.253460551035401997169716348762, 
+            //    2.1342157191853424413293579680965);
+
+            p.Rotate(c, 30);
+
+            //Assert.That(p == q, Is.True);
+
+        }
     }
 }

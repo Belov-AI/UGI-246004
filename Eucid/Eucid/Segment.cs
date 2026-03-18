@@ -49,5 +49,11 @@ namespace Eucid
             
             return false;
         }
+
+        public static bool operator ==(Segment s1, Segment s2) =>
+            s1.Equals(s2);
+
+        public static bool operator !=(Segment s1, Segment s2) =>
+            !s1.Equals(s2);
     }
 }

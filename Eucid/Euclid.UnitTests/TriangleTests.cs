@@ -23,5 +23,37 @@ namespace Euclid.UnitTests
             Assert.That(t.B, Is.SameAs(b));
             Assert.That(t.C, Is.SameAs(c));
         }
+
+        [Test]
+        public void SidesTest()
+        {
+            var t = GetTestTriangle();
+            var sideAB = new Segment(new Point(1,1), new Point(3,1));
+            var sideAC = new Segment(new Point(1, 1), new Point(3, 2));
+            var sideBC = new Segment(new Point(3, 2), new Point(3, 1));
+
+            Assert.That(t.AB == sideAB, Is.True);
+            Assert.That(t.AC == sideAC, Is.True); 
+            Assert.That(t.BC == sideBC, Is.True);
+        }
+
+        [Test]
+        public void AreaTest()
+        {
+            var t = GetTestTriangle();
+            Assert.That(t.Area, Is.EqualTo(1).Within(1e-13));
+
+        }
+
+        [Test]
+        public void ToStringTest()
+        {
+            var t = GetTestTriangle();
+            Assert.That(t.ToString(), Is.EqualTo(
+                "треугольник с вершинами в точках (1; 1), (3; 1) и (3; 2)"));
+        }
+
+        Triangle GetTestTriangle() =>
+            new Triangle(new Point(1, 1), new Point(3, 1), new Point(3, 2));       
     }
 }
