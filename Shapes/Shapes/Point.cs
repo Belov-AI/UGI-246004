@@ -20,5 +20,7 @@ namespace Shapes
             Y = y;
             Colour = color;
         }
+
+        public override string ToString() => $"({X}; {Y})";
     }
 }

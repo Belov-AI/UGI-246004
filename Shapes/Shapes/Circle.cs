@@ -7,12 +7,27 @@ using System.Drawing;
 
 namespace Shapes
 {
-    public class Circle
+    public class Circle : Shape
     {
         public Point Centre;
         public int Radius;
 
-        public Color FillColour;
-        public Color OutlineColour;
+        public Circle(Point centre, int radius, Color fillColour, Color outlineColour)
+        {
+            Centre = centre;
+            Radius = radius;
+            FillColour = fillColour;
+            OutlineColour = outlineColour;
+        }
+
+        public override double Area => Math.PI * Radius * Radius;
+
+        public override void Draw()
+        {
+            Console.WriteLine("Рисуем круг");
+        }
+
+        public override string ToString() => 
+            $"круг с центром в точке {Centre} радиуса {Radius}";
     }
 }
