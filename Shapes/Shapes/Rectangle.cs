@@ -22,6 +22,9 @@ namespace Shapes
 
         public override double Area => Width * Height;
 
+        public override object Clone() =>
+            new Rectangle(TopLeft.Clone() as Point, Width, Height);
+
         public override void Draw()
         {
             Console.WriteLine("Рисуем прямоугольник");

@@ -22,6 +22,9 @@ namespace Shapes
 
         public override double Area => Math.PI * Radius * Radius;
 
+        public override object Clone() =>
+            new Circle(Centre.Clone() as Point, Radius, FillColour, OutlineColour);
+
         public override void Draw()
         {
             Console.WriteLine("Рисуем круг");

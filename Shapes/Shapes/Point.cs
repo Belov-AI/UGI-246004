@@ -7,7 +7,7 @@ using System.Drawing;
 
 namespace Shapes
 {
-    public class Point
+    public class Point : ICloneable
     {
         public int X;
         public int Y;
@@ -20,6 +20,8 @@ namespace Shapes
             Y = y;
             Colour = color;
         }
+
+        public object Clone() => MemberwiseClone();
 
         public override string ToString() => $"({X}; {Y})";
     }
