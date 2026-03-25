@@ -1,12 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace Eucid
 {
-    public class Triangle
+    public class Triangle : IRotatable
     {
         public Point A;
         public Point B;
@@ -32,7 +33,33 @@ namespace Eucid
             C = c;
         }
 
+        public override bool Equals(object obj)
+        {
+            if (obj is Triangle t)
+                return A == t.A && B == t.B && C == t.C ||
+                    A == t.A && B == t.C && C == t.B ||
+                    A == t.B && B == t.A && C == t.C ||
+                    A == t.B && B == t.C && C == t.A ||
+                    A == t.C && B == t.A && C == t.B ||
+                    A == t.C && B == t.B && C == t.A;
+
+            return false;
+        }
+
         public override string ToString() =>
             $"треугольник с вершинами в точках {A}, {B} и {C}";
+
+        public static bool operator ==(Triangle t1, Triangle t2) =>
+            t1.Equals(t2);
+
+        public static bool operator !=(Triangle t1, Triangle t2) =>
+            !t1.Equals(t2);
+
+        public void Rotate(Point center, double AngleInDegrees)
+        {
+            A.Rotate(center, AngleInDegrees);
+            B.Rotate(center, AngleInDegrees);
+            C.Rotate(center, AngleInDegrees);
+        }
     }
 }

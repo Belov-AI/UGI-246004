@@ -34,6 +34,9 @@ namespace Eucid
 
             var xr = xa * Math.Cos(alpha) - yb * Math.Sin(alpha) + center.X;
             var yr = xa * Math.Sin(alpha) + yb * Math.Cos(alpha) + center.Y;
+
+            X = xr;
+            Y = yr;
         }
 
         public static bool operator ==(Point p, Point q) => p.Equals(q);

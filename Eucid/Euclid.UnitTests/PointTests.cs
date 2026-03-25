@@ -60,12 +60,11 @@ namespace Euclid.UnitTests
         {
             var p = new Point(3, 1);
             var c = new Point(1, 2);
-            //var q = new Point(38.253460551035401997169716348762, 
-            //    2.1342157191853424413293579680965);
+            var q = new Point(3.232050807568877, 2.133974596215561);
 
             p.Rotate(c, 30);
 
-            //Assert.That(p == q, Is.True);
+            Assert.That(p == q, Is.True);
 
         }
     }

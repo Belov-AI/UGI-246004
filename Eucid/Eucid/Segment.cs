@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Eucid
 {
-    public class Segment
+    public class Segment : IRotatable
     {
         public Point A;
         public Point B;
@@ -48,6 +48,12 @@ namespace Eucid
                 return A == s.A && B == s.B || A == s.B && B == s.A;
             
             return false;
+        }
+
+        public void Rotate(Point center, double AngleInDegrees)
+        {
+            A.Rotate(center, AngleInDegrees);
+            B.Rotate(center, AngleInDegrees);
         }
 
         public static bool operator ==(Segment s1, Segment s2) =>

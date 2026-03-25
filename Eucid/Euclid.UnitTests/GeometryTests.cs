@@ -48,5 +48,34 @@ namespace Euclid.UnitTests
             Assert.That(ex.Message, Is.EqualTo(
                 "Попытка создания отрезка с совпадающими концами (1; 1)"));
         }
+
+        [Test]
+        public void CreateProperTriangle()
+        {
+            var a = new Point(1, 1);
+            var b = new Point(3, 1);
+            var c = new Point(3, 2);
+
+            var t = Geometry.CreateTriangle(a, b, c);
+
+            Assert.That(t.A, Is.SameAs(a));
+            Assert.That(t.B, Is.SameAs(b));
+            Assert.That(t.C, Is.SameAs(c));
+        }
+
+        [Test]
+        public void CreateDegeneratedTriangle()
+        {
+            var a = new Point(1, 1);
+            var b = new Point(-1, 0);
+            var c = new Point(3, 2);
+
+            var ex = Assert.Throws<ArgumentException>(
+                () => Geometry.CreateTriangle(a, b, c));
+
+            Assert.That(ex.Message, Is.EqualTo(
+                "Попытка создания вырожденного треугольника"));
+        }
+
     }
 }

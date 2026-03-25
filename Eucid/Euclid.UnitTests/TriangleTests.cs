@@ -53,6 +53,36 @@ namespace Euclid.UnitTests
                 "треугольник с вершинами в точках (1; 1), (3; 1) и (3; 2)"));
         }
 
+        [TestCase(1, 1, 3, 1, 3, 2, true)]
+        [TestCase(1, 1, 3, 2, 3, 1, true)]
+        [TestCase(3, 1, 3, 2, 1, 1, true)]
+        [TestCase(1, 1, 3, 2, 3, 2, false)]
+        [TestCase(-1, 1, 3, 1, 3, 2, false)]
+        [TestCase(1, 1, 3, 1, 3, 2.5, false)]
+        public void Equals_Triangle_Result(
+            double ax, double ay, double bx, double by,
+            double cx, double cy, bool result)
+        {
+            var t1 = GetTestTriangle();
+
+            var t2 = new Triangle(
+                new Point(ax, ay), 
+                new Point(bx, by), 
+                new Point(cx, cy));
+
+            Assert.That(t1.Equals(t2), Is.EqualTo(result));
+        }
+
+        [Test]
+        public void Equals_Object_False()
+        {
+            var t1 = GetTestTriangle();
+            var t2 = new object();
+
+            Assert.That(t1.Equals(t2), Is.False);
+        }
+
+
         Triangle GetTestTriangle() =>
             new Triangle(new Point(1, 1), new Point(3, 1), new Point(3, 2));       
     }
