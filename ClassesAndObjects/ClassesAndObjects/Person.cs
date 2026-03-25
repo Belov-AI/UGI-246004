@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ClassesAndObjects;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,6 +11,7 @@ namespace Service
     {
         public string Name;
         public string Surname;
+        public Gender Gender { get; set; }
 
         private int age;
         public int Age
@@ -25,16 +27,25 @@ namespace Service
             }
         }
 
-        public Person(string name, string surname,  int age)
+        public Person(string name, string surname,  int age, Gender gender)
         {
             Name = name;
             Surname = surname;
             Age = age;
+            Gender = gender;
         }
 
-        public Person() : this("", "", 0) { }
+        public Person() : this("", "", 0, Gender.Female) { }
 
-        public string GetInfo() => $"{Name} {Surname}, возраст: {Age}";
+        public string GetInfo() => $"{Name} {Surname}, возраст: {Age}, пол: {GetGenderRu()}";
+
+        private string GetGenderRu()
+        {
+            if (Gender == Gender.Female)
+                return "женский";
+            else
+                return "мужской";
+        }
 
     }
 }

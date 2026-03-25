@@ -15,10 +15,12 @@ namespace ClassesAndObjects
             peter.Name = "Пётр";
             peter.Surname = "Иванов";
             peter.Age = 18;
+            peter.Gender = Gender.Male;
 
-            var ann = new Person { Name = "Анна", Surname = "Каренина", Age = 20 };
+            var ann = new Person { Name = "Анна", Surname = "Каренина", 
+                Age = 20,  Gender = Gender.Female};
 
-            var mike = new Person("Michael", "Mayers", 25);
+            var mike = new Person("Michael", "Mayers", 25, Gender.Male);
 
             Console.WriteLine(peter.GetInfo());
             Console.WriteLine(ann.GetInfo());
