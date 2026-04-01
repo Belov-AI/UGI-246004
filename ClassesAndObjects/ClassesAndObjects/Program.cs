@@ -1,5 +1,4 @@
-﻿using Service;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -22,9 +21,30 @@ namespace ClassesAndObjects
 
             var mike = new Person("Michael", "Mayers", 25, Gender.Male);
 
-            Console.WriteLine(peter.GetInfo());
-            Console.WriteLine(ann.GetInfo());
-            Console.WriteLine(mike.GetInfo());
+            var alex = new Person("Алексей", "Иванов", 19, Gender.Male);
+
+            //Console.WriteLine(peter.GetInfo());
+            //Console.WriteLine(ann.GetInfo());
+            //Console.WriteLine(mike.GetInfo());
+            //Console.WriteLine(alex.GetInfo());
+
+            var people = new Person[] { peter, ann, mike, alex };
+
+            PrintPeople(people);
+
+            Array.Sort(people);
+            Console.WriteLine();
+            PrintPeople(people);
+
+            Array.Sort(people, new ComparerByAge());
+            Console.WriteLine();
+            PrintPeople(people);
+        }
+
+        static void PrintPeople(Person[] people)
+        {
+            foreach (Person person in people)
+                Console.WriteLine($"{person.Surname} {person.Name}, возраст {person.Age}");
         }
     }
 }

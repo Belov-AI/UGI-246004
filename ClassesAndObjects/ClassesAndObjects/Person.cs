@@ -1,13 +1,13 @@
-﻿using ClassesAndObjects;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Service
+namespace ClassesAndObjects
+
 {
-    internal class Person
+    public class Person : IComparable<Person>
     {
         public string Name;
         public string Surname;
@@ -47,5 +47,12 @@ namespace Service
                 return "мужской";
         }
 
+        public int CompareTo(Person other)
+        {
+            if (Surname != other.Surname)
+                return Surname.CompareTo(other.Surname);
+            
+            return Name.CompareTo(other.Name);
+        }
     }
 }
