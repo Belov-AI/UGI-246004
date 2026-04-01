@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.Remoting.Metadata.W3cXsd2001;
@@ -7,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Eucid
 {
-    public class Segment : IRotatable
+    public class Segment : IRotatable, IEnumerable<Point>
     {
         public Point A;
         public Point B;
@@ -52,9 +53,13 @@ namespace Eucid
 
         public void Rotate(Point center, double AngleInDegrees)
         {
-            A.Rotate(center, AngleInDegrees);
-            B.Rotate(center, AngleInDegrees);
+            foreach (var p in this)
+                p.Rotate(center, AngleInDegrees);
         }
+
+        public IEnumerator<Point> GetEnumerator() => new SegmentEnumerator(this);
+
+        IEnumerator IEnumerable.GetEnumerator() => GetEnumerator();
 
         public static bool operator ==(Segment s1, Segment s2) =>
             s1.Equals(s2);

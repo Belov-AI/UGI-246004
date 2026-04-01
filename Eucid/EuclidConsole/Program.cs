@@ -30,6 +30,12 @@ namespace EuclidConsole
             { 
                 Console.WriteLine(ex.Message);
             }
+
+            s = new Segment(new Point(1, 1), new Point(3, 2));
+            Console.WriteLine(s);
+
+            foreach (var q in s)
+                Console.WriteLine(q);
         }
     }
 }

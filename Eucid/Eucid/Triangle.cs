@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.CompilerServices;
@@ -7,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Eucid
 {
-    public class Triangle : IRotatable
+    public class Triangle : IRotatable, IEnumerable<Point>
     {
         public Point A;
         public Point B;
@@ -57,9 +58,17 @@ namespace Eucid
 
         public void Rotate(Point center, double AngleInDegrees)
         {
-            A.Rotate(center, AngleInDegrees);
-            B.Rotate(center, AngleInDegrees);
-            C.Rotate(center, AngleInDegrees);
+            foreach (var p in this)
+                p.Rotate(center, AngleInDegrees);
         }
+
+        public IEnumerator<Point> GetEnumerator()
+        {
+            yield return A;
+            yield return B;
+            yield return C;
+        }
+
+        IEnumerator IEnumerable.GetEnumerator() => GetEnumerator();
     }
 }
