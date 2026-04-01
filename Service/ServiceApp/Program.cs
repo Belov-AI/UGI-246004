@@ -13,23 +13,25 @@ namespace ServiceApp
         {
             var mike = new User("Mike");
 
+            var service = new WebService();
+
             Thread.Sleep(1000);
-            WebService.LogIn(mike);
+            service.LogIn(mike);
             Thread.Sleep(1000);
 
             var ann = new RegisteredUser("Ann", "ann@urfu.ru", "qwerty2026");
-            WebService.LogIn(ann);
+            service.LogIn(ann);
 
             var admin = new Admin("John", "admin@service.ru", "Gnvion$1654bc", 2);
-            WebService.LogIn(admin);
+            service.LogIn(admin);
 
-            PrintUsersInfo();
+            PrintUsersInfo(service);
         }
 
-        static void PrintUsersInfo()
+        static void PrintUsersInfo(WebService service)
         {
-            foreach(var info in WebService.GetUsersInfo())
-                Console.WriteLine(info);
+            foreach(var user in service)
+                Console.WriteLine(user.GetInfo());
         }
-    }
+   }
 }

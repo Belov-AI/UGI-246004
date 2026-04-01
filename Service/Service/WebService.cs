@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,16 +7,16 @@ using System.Threading.Tasks;
 
 namespace Service
 {
-    public static class WebService
+    public class WebService : IEnumerable<User>
     {
-        static List<User> users;
+        List<User> users;
 
-        static WebService()
+        public WebService()
         {
             users = new List<User>();
         }
 
-        public static void LogIn(User user)
+        public void LogIn(User user)
         {
             if (!users.Contains(user)) 
             {
@@ -24,7 +25,7 @@ namespace Service
             }  
         }
 
-        public static void LogOut(User user) 
+        public void LogOut(User user) 
         {
             if (users.Contains(user)) 
             {
@@ -33,7 +34,7 @@ namespace Service
             }           
         }
 
-        public static string[] GetUserNames()
+        public string[] GetUserNames()
         {
             var userNames = new string[users.Count];
 
@@ -43,7 +44,7 @@ namespace Service
             return userNames;
         }
 
-        public static List<string> GetUsersInfo()
+        public List<string> GetUsersInfo()
         {
             var result = new List<string>();
 
@@ -52,5 +53,9 @@ namespace Service
 
             return result;
         }
+
+        public IEnumerator<User> GetEnumerator() => users.GetEnumerator();
+
+        IEnumerator IEnumerable.GetEnumerator() => users.GetEnumerator();
     }
 }
