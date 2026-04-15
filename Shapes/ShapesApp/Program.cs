@@ -19,17 +19,20 @@ namespace ShapesApp
             var cirle = new Circle(point, 3, Color.LightGreen, Color.Green);
             //Console.WriteLine(cirle);
 
-            var retangle = 
+            var rectangle = 
                 new Shapes.Rectangle(new Shapes.Point(1, 1, Color.BlueViolet), 20, 30);
             //Console.WriteLine(retangle);
 
-            var shapes = new Shape[] {cirle, retangle};
+            var shapes = new Shape[] {cirle, rectangle};
 
             foreach(var shape in shapes)
                 Console.WriteLine(shape + $" площади {shape.Area:F3}");
 
             foreach (var shape in shapes)
                 shape.Draw();
+
+            var rectangleClone = rectangle.Clone();
+            Console.WriteLine(rectangleClone);
         }
     }
 }

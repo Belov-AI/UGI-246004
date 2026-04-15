@@ -23,7 +23,7 @@ namespace Shapes
         public override double Area => Width * Height;
 
         public override object Clone() =>
-            new Rectangle(TopLeft.Clone() as Point, Width, Height);
+            new Rectangle((Point)TopLeft.Clone(), Width, Height);
 
         public override void Draw()
         {
@@ -31,6 +31,6 @@ namespace Shapes
         }
 
         public override string ToString() =>
-            $"прямоугольник: верхний левй угол в точке {TopLeft} {Width}x{Height}";
+            $"прямоугольник: верхний левый угол в точке {TopLeft} {Width}x{Height}";
     }
 }

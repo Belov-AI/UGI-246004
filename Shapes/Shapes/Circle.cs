@@ -23,7 +23,7 @@ namespace Shapes
         public override double Area => Math.PI * Radius * Radius;
 
         public override object Clone() =>
-            new Circle(Centre.Clone() as Point, Radius, FillColour, OutlineColour);
+            new Circle((Point)Centre.Clone(), Radius, FillColour, OutlineColour);
 
         public override void Draw()
         {

@@ -7,7 +7,7 @@ using System.Drawing;
 
 namespace Shapes
 {
-    public class Point : ICloneable
+    public struct Point : ICloneable
     {
         public int X;
         public int Y;
