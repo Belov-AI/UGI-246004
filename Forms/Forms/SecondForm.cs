@@ -16,5 +16,24 @@ namespace Forms
         {
             InitializeComponent();
         }
+
+        private void answerButton_Click(object sender, EventArgs e)
+        {
+            var answer = new DialogForm();
+            var result = answer.ShowDialog();
+
+            if (result == DialogResult.Yes)
+                MessageBox.Show("Они такие милые");
+            else if(result == DialogResult.No)
+                MessageBox.Show("Подумай еще раз");
+        }
+
+        private void ownedFormButton_Click(object sender, EventArgs e)
+        {
+            var ownedForm = new ThirdForm();
+            ownedForm.Owner = this;
+            //AddOwnedForm(ownedForm);
+            ownedForm.Show();
+        }
     }
 }

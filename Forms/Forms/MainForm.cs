@@ -26,7 +26,11 @@ namespace Forms
                 secondForm = new SecondForm();
                 secondForm.Show();
             }               
+        }
 
+        private void containerButton_Click(object sender, EventArgs e)
+        {
+            (new ContainerForm()).Show();
         }
     }
 }

@@ -29,12 +29,13 @@
         private void InitializeComponent()
         {
             this.openFormButton = new System.Windows.Forms.Button();
+            this.containerButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // openFormButton
             // 
             this.openFormButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.openFormButton.Location = new System.Drawing.Point(29, 56);
+            this.openFormButton.Location = new System.Drawing.Point(92, 63);
             this.openFormButton.Name = "openFormButton";
             this.openFormButton.Size = new System.Drawing.Size(219, 105);
             this.openFormButton.TabIndex = 0;
@@ -42,12 +43,24 @@
             this.openFormButton.UseVisualStyleBackColor = true;
             this.openFormButton.Click += new System.EventHandler(this.openFormButton_Click);
             // 
+            // containerButton
+            // 
+            this.containerButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.containerButton.Location = new System.Drawing.Point(101, 212);
+            this.containerButton.Name = "containerButton";
+            this.containerButton.Size = new System.Drawing.Size(210, 102);
+            this.containerButton.TabIndex = 1;
+            this.containerButton.Text = "Открыть контейнер";
+            this.containerButton.UseVisualStyleBackColor = true;
+            this.containerButton.Click += new System.EventHandler(this.containerButton_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(394, 450);
+            this.Controls.Add(this.containerButton);
             this.Controls.Add(this.openFormButton);
             this.Name = "MainForm";
             this.Text = "Главная формая";
@@ -58,6 +71,7 @@
         #endregion
 
         private System.Windows.Forms.Button openFormButton;
+        private System.Windows.Forms.Button containerButton;
     }
 }
 
