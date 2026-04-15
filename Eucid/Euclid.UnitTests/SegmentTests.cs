@@ -13,8 +13,8 @@ namespace Euclid.UnitTests
 
             var s = new Segment(a, b);
 
-            Assert.That(s.A, Is.SameAs(a));
-            Assert.That(s.B, Is.SameAs(b));
+            Assert.That(s.A, Is.EqualTo(a));
+            Assert.That(s.B, Is.EqualTo(b));
         }
 
         [Test]

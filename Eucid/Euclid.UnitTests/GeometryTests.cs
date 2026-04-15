@@ -29,8 +29,8 @@ namespace Euclid.UnitTests
 
             var s = Geometry.CreateSegment(a, b);
 
-            Assert.That(s.A, Is.SameAs(a));
-            Assert.That(s.B, Is.SameAs(b));
+            Assert.That(s.A, Is.EqualTo(a));
+            Assert.That(s.B, Is.EqualTo(b));
         }
 
         [Test]
@@ -58,9 +58,9 @@ namespace Euclid.UnitTests
 
             var t = Geometry.CreateTriangle(a, b, c);
 
-            Assert.That(t.A, Is.SameAs(a));
-            Assert.That(t.B, Is.SameAs(b));
-            Assert.That(t.C, Is.SameAs(c));
+            Assert.That(t.A, Is.EqualTo(a));
+            Assert.That(t.B, Is.EqualTo(b));
+            Assert.That(t.C, Is.EqualTo(c));
         }
 
         [Test]

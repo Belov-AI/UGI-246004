@@ -42,7 +42,7 @@ namespace Euclid.UnitTests
             var p = new Point(1, -2);
             var q = new Point(x, y);
 
-            Assert.That(p,Is.Not.SameAs(q));
+            //Assert.That(p,Is.Not.EqualTo(q));
             Assert.That(p.Equals(q), Is.EqualTo(result));
         }
 

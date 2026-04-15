@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Eucid
 {
-    public class Point : IRotatable
+    public struct Point : IRotatable
     {
         public double X;
         public double Y;

@@ -10,9 +10,9 @@ namespace Eucid
     class SegmentEnumerator : IEnumerator<Point>
     {
         Segment s;
-        Point current;
+        object current;
 
-        public Point Current => current;
+        public Point Current => (Point)current;
 
         object IEnumerator.Current => Current;
 
@@ -31,9 +31,9 @@ namespace Eucid
                 current = s.A;
                 return true;
             }
-            else if (current == s.A)
+            else if (current == (object)s.A)
             {
-                current = s.B;
+                current = (object)s.B;
                 return true;
             }
             else

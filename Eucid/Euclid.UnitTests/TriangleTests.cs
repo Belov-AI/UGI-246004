@@ -19,9 +19,9 @@ namespace Euclid.UnitTests
 
             var t = new Triangle (a, b, c);
 
-            Assert.That(t.A, Is.SameAs(a));
-            Assert.That(t.B, Is.SameAs(b));
-            Assert.That(t.C, Is.SameAs(c));
+            Assert.That(t.A, Is.EqualTo(a));
+            Assert.That(t.B, Is.EqualTo(b));
+            Assert.That(t.C, Is.EqualTo(c));
         }
 
         [Test]
