@@ -21,7 +21,7 @@ namespace Forms
 
         private void openFormButton_Click(object sender, EventArgs e)
         {    
-            if(secondForm == null)
+            if(secondForm == null || secondForm.IsDisposed)
             {
                 secondForm = new SecondForm();
                 secondForm.Show();
