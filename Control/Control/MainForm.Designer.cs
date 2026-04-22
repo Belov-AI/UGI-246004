@@ -1,0 +1,193 @@
+﻿namespace Control
+{
+    partial class MainForm
+    {
+        /// <summary>
+        /// Обязательная переменная конструктора.
+        /// </summary>
+        private System.ComponentModel.IContainer components = null;
+
+        /// <summary>
+        /// Освободить все используемые ресурсы.
+        /// </summary>
+        /// <param name="disposing">истинно, если управляемый ресурс должен быть удален; иначе ложно.</param>
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
+                components.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+
+        #region Код, автоматически созданный конструктором форм Windows
+
+        /// <summary>
+        /// Требуемый метод для поддержки конструктора — не изменяйте 
+        /// содержимое этого метода с помощью редактора кода.
+        /// </summary>
+        private void InitializeComponent()
+        {
+            this.titleLabel = new System.Windows.Forms.Label();
+            this.titleTextBox = new System.Windows.Forms.TextBox();
+            this.enterButton = new System.Windows.Forms.Button();
+            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+            this.boldCheckBox = new System.Windows.Forms.CheckBox();
+            this.italicCheckBox = new System.Windows.Forms.CheckBox();
+            this.uderlineCheckBox = new System.Windows.Forms.CheckBox();
+            this.radioButton1 = new System.Windows.Forms.RadioButton();
+            this.radioButton2 = new System.Windows.Forms.RadioButton();
+            this.radioButton3 = new System.Windows.Forms.RadioButton();
+            this.SuspendLayout();
+            // 
+            // titleLabel
+            // 
+            this.titleLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.titleLabel.Location = new System.Drawing.Point(25, 28);
+            this.titleLabel.Name = "titleLabel";
+            this.titleLabel.Size = new System.Drawing.Size(374, 36);
+            this.titleLabel.TabIndex = 0;
+            this.titleLabel.Text = "текст";
+            this.titleLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.titleLabel.MouseLeave += new System.EventHandler(this.titleLabel_MouseLeave);
+            this.titleLabel.MouseHover += new System.EventHandler(this.titleLabel_MouseHover);
+            // 
+            // titleTextBox
+            // 
+            this.titleTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.titleTextBox.Location = new System.Drawing.Point(30, 88);
+            this.titleTextBox.Name = "titleTextBox";
+            this.titleTextBox.Size = new System.Drawing.Size(369, 26);
+            this.titleTextBox.TabIndex = 1;
+            // 
+            // enterButton
+            // 
+            this.enterButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.enterButton.Location = new System.Drawing.Point(30, 137);
+            this.enterButton.Name = "enterButton";
+            this.enterButton.Size = new System.Drawing.Size(75, 38);
+            this.enterButton.TabIndex = 2;
+            this.enterButton.Text = "Ввод";
+            this.enterButton.UseVisualStyleBackColor = true;
+            this.enterButton.Click += new System.EventHandler(this.enterButton_Click);
+            // 
+            // richTextBox1
+            // 
+            this.richTextBox1.Location = new System.Drawing.Point(439, 28);
+            this.richTextBox1.Name = "richTextBox1";
+            this.richTextBox1.Size = new System.Drawing.Size(562, 355);
+            this.richTextBox1.TabIndex = 3;
+            this.richTextBox1.Text = "";
+            // 
+            // boldCheckBox
+            // 
+            this.boldCheckBox.AutoSize = true;
+            this.boldCheckBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.boldCheckBox.Location = new System.Drawing.Point(30, 199);
+            this.boldCheckBox.Name = "boldCheckBox";
+            this.boldCheckBox.Size = new System.Drawing.Size(133, 24);
+            this.boldCheckBox.TabIndex = 4;
+            this.boldCheckBox.Text = "полужирный";
+            this.boldCheckBox.UseVisualStyleBackColor = true;
+            this.boldCheckBox.CheckedChanged += new System.EventHandler(this.ChangeFontSyle);
+            // 
+            // italicCheckBox
+            // 
+            this.italicCheckBox.AutoSize = true;
+            this.italicCheckBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.italicCheckBox.Location = new System.Drawing.Point(30, 229);
+            this.italicCheckBox.Name = "italicCheckBox";
+            this.italicCheckBox.Size = new System.Drawing.Size(87, 24);
+            this.italicCheckBox.TabIndex = 4;
+            this.italicCheckBox.Text = "курсив";
+            this.italicCheckBox.UseVisualStyleBackColor = true;
+            this.italicCheckBox.CheckedChanged += new System.EventHandler(this.ChangeFontSyle);
+            // 
+            // uderlineCheckBox
+            // 
+            this.uderlineCheckBox.AutoSize = true;
+            this.uderlineCheckBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.uderlineCheckBox.Location = new System.Drawing.Point(30, 259);
+            this.uderlineCheckBox.Name = "uderlineCheckBox";
+            this.uderlineCheckBox.Size = new System.Drawing.Size(152, 24);
+            this.uderlineCheckBox.TabIndex = 4;
+            this.uderlineCheckBox.Text = "подчеркнутый";
+            this.uderlineCheckBox.UseVisualStyleBackColor = true;
+            this.uderlineCheckBox.CheckedChanged += new System.EventHandler(this.ChangeFontSyle);
+            // 
+            // radioButton1
+            // 
+            this.radioButton1.AutoSize = true;
+            this.radioButton1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.radioButton1.Location = new System.Drawing.Point(234, 199);
+            this.radioButton1.Name = "radioButton1";
+            this.radioButton1.Size = new System.Drawing.Size(64, 24);
+            this.radioButton1.TabIndex = 5;
+            this.radioButton1.TabStop = true;
+            this.radioButton1.Text = "8 пт";
+            this.radioButton1.UseVisualStyleBackColor = true;
+            this.radioButton1.CheckedChanged += new System.EventHandler(this.ChangeFontSize);
+            // 
+            // radioButton2
+            // 
+            this.radioButton2.AutoSize = true;
+            this.radioButton2.Checked = true;
+            this.radioButton2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.radioButton2.Location = new System.Drawing.Point(234, 229);
+            this.radioButton2.Name = "radioButton2";
+            this.radioButton2.Size = new System.Drawing.Size(73, 24);
+            this.radioButton2.TabIndex = 5;
+            this.radioButton2.TabStop = true;
+            this.radioButton2.Text = "12 пт";
+            this.radioButton2.UseVisualStyleBackColor = true;
+            this.radioButton2.CheckedChanged += new System.EventHandler(this.ChangeFontSize);
+            // 
+            // radioButton3
+            // 
+            this.radioButton3.AutoSize = true;
+            this.radioButton3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.radioButton3.Location = new System.Drawing.Point(234, 259);
+            this.radioButton3.Name = "radioButton3";
+            this.radioButton3.Size = new System.Drawing.Size(73, 24);
+            this.radioButton3.TabIndex = 5;
+            this.radioButton3.Text = "16 пт";
+            this.radioButton3.UseVisualStyleBackColor = true;
+            this.radioButton3.CheckedChanged += new System.EventHandler(this.ChangeFontSize);
+            // 
+            // MainForm
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(1041, 450);
+            this.Controls.Add(this.radioButton3);
+            this.Controls.Add(this.radioButton2);
+            this.Controls.Add(this.radioButton1);
+            this.Controls.Add(this.uderlineCheckBox);
+            this.Controls.Add(this.italicCheckBox);
+            this.Controls.Add(this.boldCheckBox);
+            this.Controls.Add(this.richTextBox1);
+            this.Controls.Add(this.enterButton);
+            this.Controls.Add(this.titleTextBox);
+            this.Controls.Add(this.titleLabel);
+            this.Name = "MainForm";
+            this.Text = "Элементы управления";
+            this.ResumeLayout(false);
+            this.PerformLayout();
+
+        }
+
+        #endregion
+
+        private System.Windows.Forms.Label titleLabel;
+        private System.Windows.Forms.TextBox titleTextBox;
+        private System.Windows.Forms.Button enterButton;
+        private System.Windows.Forms.RichTextBox richTextBox1;
+        private System.Windows.Forms.CheckBox boldCheckBox;
+        private System.Windows.Forms.CheckBox italicCheckBox;
+        private System.Windows.Forms.CheckBox uderlineCheckBox;
+        private System.Windows.Forms.RadioButton radioButton1;
+        private System.Windows.Forms.RadioButton radioButton2;
+        private System.Windows.Forms.RadioButton radioButton3;
+    }
+}
+
