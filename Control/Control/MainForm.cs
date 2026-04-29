@@ -12,9 +12,22 @@ namespace Control
 {
     public partial class MainForm : Form
     {
+        int pictureNumber = 0;
+
         public MainForm()
         {
             InitializeComponent();
+
+            titleListBox.Items.Add("Глава");
+            titleListBox.Items.Add("Параграф");
+            titleListBox.Items.Add("Раздел");
+
+            fontFamilyComboBox.Items.Add("Microsoft San Serif");
+            fontFamilyComboBox.Items.Add("Times New Roman");
+            fontFamilyComboBox.Items.Add("Courier New");
+            fontFamilyComboBox.Items.Add("Tahoma");
+            //fontFamilyComboBox.SelectedIndex = 0;
+            fontFamilyComboBox.SelectedItem = "Microsoft San Serif";
         }
 
         private void titleLabel_MouseHover(object sender, EventArgs e)
@@ -62,6 +75,41 @@ namespace Control
                 titleLabel.Font.FontFamily, 
                 size, 
                 titleLabel.Font.Style);
+        }
+
+        private void titleListBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            var listBox = sender as ListBox;
+            titleLabel.Text = listBox.SelectedItem.ToString();
+        }
+
+        private void fontFamilyComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            var comboBox = sender as ComboBox;
+
+            titleLabel.Font = new Font(
+                comboBox.SelectedItem.ToString(), 
+                titleLabel.Font.Size, 
+                titleLabel.Font.Style);
+        }
+
+        private void ChangePicture(object sender, EventArgs e)
+        {
+            var button = sender as Button;
+
+            if (button.Text == ">")
+                pictureNumber++;
+            else
+                pictureNumber--;
+
+            if (pictureNumber == 8)
+                pictureNumber = 1;
+            
+            if (pictureNumber == 0)
+                pictureNumber = 7;
+
+            pictureBox1.Image = Properties.Resources.ResourceManager.GetObject(
+                "pic" + pictureNumber) as Image;
         }
     }
 }
