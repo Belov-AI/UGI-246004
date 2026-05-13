@@ -28,6 +28,11 @@ namespace Control
             fontFamilyComboBox.Items.Add("Tahoma");
             //fontFamilyComboBox.SelectedIndex = 0;
             fontFamilyComboBox.SelectedItem = "Microsoft San Serif";
+
+            openPictureDialog.Filter = 
+                "JPEG|*.jpg|PNG|*.png|TIFF|*.tif|GIF|*.gif";
+
+            openTextDialog.Filter = "Простой текст|*.txt|Форматированный текст|*.rtf";
         }
 
         private void titleLabel_MouseHover(object sender, EventArgs e)
@@ -110,6 +115,51 @@ namespace Control
 
             pictureBox1.Image = Properties.Resources.ResourceManager.GetObject(
                 "pic" + pictureNumber) as Image;
+        }
+
+        private void slideshowTimer_Tick(object sender, EventArgs e)
+        {
+            slideshowProgressBar.PerformStep();
+
+            if (slideshowProgressBar.Value % 50 == 0)
+                ChangePicture(button2, new EventArgs());
+
+            if (slideshowProgressBar.Value == slideshowProgressBar.Maximum)
+            {
+                slideshowButton.Text = "Старт";
+                slideshowTimer.Stop();
+                slideshowProgressBar.Value = 0;
+                openPictureButton.Enabled = true;
+            }
+        }
+
+        private void slideshowButton_Click(object sender, EventArgs e)
+        {
+            if (slideshowButton.Text == "Старт")
+            {
+                if (slideshowProgressBar.Value == 0)
+                {
+                    pictureNumber = 0;
+                    ChangePicture(button2, new EventArgs());
+                    openPictureButton.Enabled = false;
+                }
+
+                slideshowButton.Text = "Стоп";
+                slideshowTimer.Start();
+            }
+            else
+            {
+                slideshowButton.Text = "Старт";
+                slideshowTimer.Stop();
+            }
+        }
+
+        private void openPictureButton_Click(object sender, EventArgs e)
+        {
+            var result = openPictureDialog.ShowDialog();
+
+            if (result == DialogResult.OK)
+                pictureBox1.Image = Image.FromFile(openPictureDialog.FileName);
         }
     }
 }

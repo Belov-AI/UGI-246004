@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.titleLabel = new System.Windows.Forms.Label();
             this.titleTextBox = new System.Windows.Forms.TextBox();
@@ -44,6 +45,13 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
+            this.slideshowProgressBar = new System.Windows.Forms.ProgressBar();
+            this.slideshowTimer = new System.Windows.Forms.Timer(this.components);
+            this.slideshowButton = new System.Windows.Forms.Button();
+            this.openPictureButton = new System.Windows.Forms.Button();
+            this.openPictureDialog = new System.Windows.Forms.OpenFileDialog();
+            this.jpenTextutton = new System.Windows.Forms.Button();
+            this.openTextDialog = new System.Windows.Forms.OpenFileDialog();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -82,7 +90,7 @@
             // 
             this.richTextBox1.Location = new System.Drawing.Point(439, 28);
             this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(562, 402);
+            this.richTextBox1.Size = new System.Drawing.Size(562, 649);
             this.richTextBox1.TabIndex = 3;
             this.richTextBox1.Text = "";
             // 
@@ -216,11 +224,69 @@
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.ChangePicture);
             // 
+            // slideshowProgressBar
+            // 
+            this.slideshowProgressBar.Location = new System.Drawing.Point(30, 762);
+            this.slideshowProgressBar.Maximum = 300;
+            this.slideshowProgressBar.Name = "slideshowProgressBar";
+            this.slideshowProgressBar.Size = new System.Drawing.Size(375, 46);
+            this.slideshowProgressBar.Step = 1;
+            this.slideshowProgressBar.TabIndex = 10;
+            // 
+            // slideshowTimer
+            // 
+            this.slideshowTimer.Interval = 40;
+            this.slideshowTimer.Tick += new System.EventHandler(this.slideshowTimer_Tick);
+            // 
+            // slideshowButton
+            // 
+            this.slideshowButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.slideshowButton.Location = new System.Drawing.Point(180, 695);
+            this.slideshowButton.Name = "slideshowButton";
+            this.slideshowButton.Size = new System.Drawing.Size(75, 46);
+            this.slideshowButton.TabIndex = 11;
+            this.slideshowButton.Text = "Старт";
+            this.slideshowButton.UseVisualStyleBackColor = true;
+            this.slideshowButton.Click += new System.EventHandler(this.slideshowButton_Click);
+            // 
+            // openPictureButton
+            // 
+            this.openPictureButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.openPictureButton.Location = new System.Drawing.Point(439, 762);
+            this.openPictureButton.Name = "openPictureButton";
+            this.openPictureButton.Size = new System.Drawing.Size(227, 46);
+            this.openPictureButton.TabIndex = 12;
+            this.openPictureButton.Text = "Открыть изображение ";
+            this.openPictureButton.UseVisualStyleBackColor = true;
+            this.openPictureButton.Click += new System.EventHandler(this.openPictureButton_Click);
+            // 
+            // openPictureDialog
+            // 
+            this.openPictureDialog.FileName = "openFileDialog1";
+            // 
+            // jpenTextutton
+            // 
+            this.jpenTextutton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.jpenTextutton.Location = new System.Drawing.Point(439, 695);
+            this.jpenTextutton.Name = "jpenTextutton";
+            this.jpenTextutton.Size = new System.Drawing.Size(227, 44);
+            this.jpenTextutton.TabIndex = 13;
+            this.jpenTextutton.Text = "Открыть текст";
+            this.jpenTextutton.UseVisualStyleBackColor = true;
+            // 
+            // openTextDialog
+            // 
+            this.openTextDialog.FileName = "openFileDialog1";
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1041, 751);
+            this.ClientSize = new System.Drawing.Size(1041, 834);
+            this.Controls.Add(this.jpenTextutton);
+            this.Controls.Add(this.openPictureButton);
+            this.Controls.Add(this.slideshowButton);
+            this.Controls.Add(this.slideshowProgressBar);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.pictureBox1);
@@ -261,6 +327,13 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.ProgressBar slideshowProgressBar;
+        private System.Windows.Forms.Timer slideshowTimer;
+        private System.Windows.Forms.Button slideshowButton;
+        private System.Windows.Forms.Button openPictureButton;
+        private System.Windows.Forms.OpenFileDialog openPictureDialog;
+        private System.Windows.Forms.Button jpenTextutton;
+        private System.Windows.Forms.OpenFileDialog openTextDialog;
     }
 }
 
