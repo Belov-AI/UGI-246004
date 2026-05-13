@@ -50,7 +50,7 @@
             this.slideshowButton = new System.Windows.Forms.Button();
             this.openPictureButton = new System.Windows.Forms.Button();
             this.openPictureDialog = new System.Windows.Forms.OpenFileDialog();
-            this.jpenTextutton = new System.Windows.Forms.Button();
+            this.openTextButton = new System.Windows.Forms.Button();
             this.openTextDialog = new System.Windows.Forms.OpenFileDialog();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -74,6 +74,7 @@
             this.titleTextBox.Name = "titleTextBox";
             this.titleTextBox.Size = new System.Drawing.Size(369, 26);
             this.titleTextBox.TabIndex = 1;
+            this.titleTextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.titleTextBox_KeyDown);
             // 
             // enterButton
             // 
@@ -91,7 +92,7 @@
             this.richTextBox1.Location = new System.Drawing.Point(439, 28);
             this.richTextBox1.Name = "richTextBox1";
             this.richTextBox1.Size = new System.Drawing.Size(562, 649);
-            this.richTextBox1.TabIndex = 3;
+            this.richTextBox1.TabIndex = 14;
             this.richTextBox1.Text = "";
             // 
             // boldCheckBox
@@ -113,7 +114,7 @@
             this.italicCheckBox.Location = new System.Drawing.Point(30, 229);
             this.italicCheckBox.Name = "italicCheckBox";
             this.italicCheckBox.Size = new System.Drawing.Size(87, 24);
-            this.italicCheckBox.TabIndex = 4;
+            this.italicCheckBox.TabIndex = 5;
             this.italicCheckBox.Text = "курсив";
             this.italicCheckBox.UseVisualStyleBackColor = true;
             this.italicCheckBox.CheckedChanged += new System.EventHandler(this.ChangeFontSyle);
@@ -125,7 +126,7 @@
             this.uderlineCheckBox.Location = new System.Drawing.Point(30, 259);
             this.uderlineCheckBox.Name = "uderlineCheckBox";
             this.uderlineCheckBox.Size = new System.Drawing.Size(152, 24);
-            this.uderlineCheckBox.TabIndex = 4;
+            this.uderlineCheckBox.TabIndex = 6;
             this.uderlineCheckBox.Text = "подчеркнутый";
             this.uderlineCheckBox.UseVisualStyleBackColor = true;
             this.uderlineCheckBox.CheckedChanged += new System.EventHandler(this.ChangeFontSyle);
@@ -137,7 +138,7 @@
             this.radioButton1.Location = new System.Drawing.Point(234, 199);
             this.radioButton1.Name = "radioButton1";
             this.radioButton1.Size = new System.Drawing.Size(64, 24);
-            this.radioButton1.TabIndex = 5;
+            this.radioButton1.TabIndex = 7;
             this.radioButton1.TabStop = true;
             this.radioButton1.Text = "8 пт";
             this.radioButton1.UseVisualStyleBackColor = true;
@@ -151,7 +152,7 @@
             this.radioButton2.Location = new System.Drawing.Point(234, 229);
             this.radioButton2.Name = "radioButton2";
             this.radioButton2.Size = new System.Drawing.Size(73, 24);
-            this.radioButton2.TabIndex = 5;
+            this.radioButton2.TabIndex = 7;
             this.radioButton2.TabStop = true;
             this.radioButton2.Text = "12 пт";
             this.radioButton2.UseVisualStyleBackColor = true;
@@ -164,7 +165,7 @@
             this.radioButton3.Location = new System.Drawing.Point(234, 259);
             this.radioButton3.Name = "radioButton3";
             this.radioButton3.Size = new System.Drawing.Size(73, 24);
-            this.radioButton3.TabIndex = 5;
+            this.radioButton3.TabIndex = 7;
             this.radioButton3.Text = "16 пт";
             this.radioButton3.UseVisualStyleBackColor = true;
             this.radioButton3.CheckedChanged += new System.EventHandler(this.ChangeFontSize);
@@ -177,7 +178,7 @@
             this.titleListBox.Location = new System.Drawing.Point(30, 306);
             this.titleListBox.Name = "titleListBox";
             this.titleListBox.Size = new System.Drawing.Size(369, 124);
-            this.titleListBox.TabIndex = 6;
+            this.titleListBox.TabIndex = 8;
             this.titleListBox.SelectedIndexChanged += new System.EventHandler(this.titleListBox_SelectedIndexChanged);
             // 
             // fontFamilyComboBox
@@ -189,7 +190,7 @@
             this.fontFamilyComboBox.Name = "fontFamilyComboBox";
             this.fontFamilyComboBox.Size = new System.Drawing.Size(255, 28);
             this.fontFamilyComboBox.Sorted = true;
-            this.fontFamilyComboBox.TabIndex = 7;
+            this.fontFamilyComboBox.TabIndex = 3;
             this.fontFamilyComboBox.SelectedIndexChanged += new System.EventHandler(this.fontFamilyComboBox_SelectedIndexChanged);
             // 
             // pictureBox1
@@ -208,7 +209,7 @@
             this.button1.Location = new System.Drawing.Point(30, 693);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(46, 46);
-            this.button1.TabIndex = 9;
+            this.button1.TabIndex = 10;
             this.button1.Text = "<";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.ChangePicture);
@@ -264,15 +265,16 @@
             // 
             this.openPictureDialog.FileName = "openFileDialog1";
             // 
-            // jpenTextutton
+            // openTextButton
             // 
-            this.jpenTextutton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.jpenTextutton.Location = new System.Drawing.Point(439, 695);
-            this.jpenTextutton.Name = "jpenTextutton";
-            this.jpenTextutton.Size = new System.Drawing.Size(227, 44);
-            this.jpenTextutton.TabIndex = 13;
-            this.jpenTextutton.Text = "Открыть текст";
-            this.jpenTextutton.UseVisualStyleBackColor = true;
+            this.openTextButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.openTextButton.Location = new System.Drawing.Point(439, 695);
+            this.openTextButton.Name = "openTextButton";
+            this.openTextButton.Size = new System.Drawing.Size(227, 44);
+            this.openTextButton.TabIndex = 13;
+            this.openTextButton.Text = "Открыть текст";
+            this.openTextButton.UseVisualStyleBackColor = true;
+            this.openTextButton.Click += new System.EventHandler(this.openTextButton_Click);
             // 
             // openTextDialog
             // 
@@ -283,7 +285,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1041, 834);
-            this.Controls.Add(this.jpenTextutton);
+            this.Controls.Add(this.openTextButton);
             this.Controls.Add(this.openPictureButton);
             this.Controls.Add(this.slideshowButton);
             this.Controls.Add(this.slideshowProgressBar);
@@ -332,7 +334,7 @@
         private System.Windows.Forms.Button slideshowButton;
         private System.Windows.Forms.Button openPictureButton;
         private System.Windows.Forms.OpenFileDialog openPictureDialog;
-        private System.Windows.Forms.Button jpenTextutton;
+        private System.Windows.Forms.Button openTextButton;
         private System.Windows.Forms.OpenFileDialog openTextDialog;
     }
 }

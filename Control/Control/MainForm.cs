@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
 
 namespace Control
 {
@@ -160,6 +161,24 @@ namespace Control
 
             if (result == DialogResult.OK)
                 pictureBox1.Image = Image.FromFile(openPictureDialog.FileName);
+        }
+
+        private void titleTextBox_KeyDown(object sender, KeyEventArgs e)
+        {
+            if(e.KeyCode == Keys.Enter)
+                enterButton_Click(sender, e);
+        }
+
+        private void openTextButton_Click(object sender, EventArgs e)
+        {
+            var result = openTextDialog.ShowDialog();
+
+            if(result == DialogResult.OK)
+                if(openTextDialog.FilterIndex == 1)
+                    richTextBox1.Text = File.ReadAllText(openTextDialog.FileName,
+                        Encoding.Default);
+            else
+                richTextBox1.LoadFile(openTextDialog.FileName);
         }
     }
 }
