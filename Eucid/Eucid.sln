@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EuclidConsole", "EuclidCons
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Euclid.UnitTests", "Euclid.UnitTests\Euclid.UnitTests.csproj", "{4F21D8AF-125A-434A-AD8F-18AB87E4FDF1}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rotation", "Rotation\Rotation.csproj", "{8D21550B-FD8C-46DF-AD4A-734A8620108F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{4F21D8AF-125A-434A-AD8F-18AB87E4FDF1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4F21D8AF-125A-434A-AD8F-18AB87E4FDF1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4F21D8AF-125A-434A-AD8F-18AB87E4FDF1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8D21550B-FD8C-46DF-AD4A-734A8620108F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8D21550B-FD8C-46DF-AD4A-734A8620108F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8D21550B-FD8C-46DF-AD4A-734A8620108F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8D21550B-FD8C-46DF-AD4A-734A8620108F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
