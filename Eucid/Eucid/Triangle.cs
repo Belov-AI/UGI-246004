@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Eucid
 {
-    public class Triangle : IRotatable, IEnumerable<Point>
+    public class Triangle : ICloneable, IRotatable, IEnumerable<Point>
     {
         public Point A;
         public Point B;
@@ -58,8 +58,9 @@ namespace Eucid
 
         public void Rotate(Point center, double AngleInDegrees)
         {
-            foreach (var p in this)
-                p.Rotate(center, AngleInDegrees);
+            A.Rotate(center, AngleInDegrees);
+            B.Rotate(center, AngleInDegrees);
+            C.Rotate(center, AngleInDegrees);
         }
 
         public IEnumerator<Point> GetEnumerator()
@@ -70,5 +71,11 @@ namespace Eucid
         }
 
         IEnumerator IEnumerable.GetEnumerator() => GetEnumerator();
+
+        public object Clone() => new Triangle(
+            new Point(A.X, A.Y), 
+            new Point(B.X, B.Y),
+            new Point(C.X, C.Y));
+        
     }
 }
